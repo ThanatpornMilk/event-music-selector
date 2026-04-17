@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Song {
+  id        Int      @id @default(autoincrement())
+  title     String   // ชื่อเพลง
+  artist    String   // ชื่อนักร้อง
+  band      String?  // ชื่อวง (ถ้ามี)
+  duration    String   // นาที (เช่น "3:45")
+  rawDuration Int      @default(0) // วินาที (เช่น 225)
+  url       String   // ลิ้ง url
+  language  String   // ภาษา
+  
+  // ความสัมพันธ์ (Relation)
+  genres    Genre[]
+  themes    Theme[]
+  playlists Playlist[] // เพิ่มความสัมพันธ์กับ Playlist
+  
+  createdAt DateTime @default(now())
+}
+
+model Genre {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  songs Song[]
+}
+
+model Theme {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  songs Song[]
+}
+
+model Playlist {
+  id        Int      @id @default(autoincrement())
+  name      String
+  isLiked   Boolean  @default(false)
+  
+  // เวลาเพลงรวม
+  totalHours   Int   @default(0)
+  totalMinutes Int   @default(0)
+  totalSeconds Int   @default(0)
+  
+  // metadata อื่นๆ เช่น แนวเพลงที่เกี่ยวข้อง
+  metadata     String? 
+
+  songs     Song[]
+  createdAt DateTime @default(now())
+}

@@ -80,7 +80,3 @@ A Next.js web application designed to help you quickly generate, preview, and cu
 3. You'll be redirected to the **Generated Playlists** page. Here you can browse the tracks and preview them.
 4. Click the **Heart (Favorite)** icon to save a playlist. You'll be prompted to give it a custom name.
 5. Navigate to the **Favorites** page to manage all your saved collections.
-
-## ⚖️ License
-
-This project is created for private/internal usage. Ensure you have the rights to the YouTube URLs and music references used within the application.

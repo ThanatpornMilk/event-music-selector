@@ -19,11 +19,9 @@ export default function FormField({
 }) {
     const [isOpen, setIsOpen] = React.useState(false);
     const dropdownRef = React.useRef(null);
-
-    // ปรับสไตล์พื้นฐาน
     const baseStyles = "w-full h-[45px] p-3 border border-gray-200 rounded-md text-black text-base bg-white focus:ring-2 focus:ring-primary outline-none transition-all flex items-center justify-between";
 
-    // ปิด Dropdown เมื่อคลิกข้างนอก
+    // Close dropdown when clicking outside
     React.useEffect(() => {
         const handleClickOutside = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {

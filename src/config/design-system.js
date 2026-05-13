@@ -6,7 +6,7 @@
  */
 
 export const designSystem = {
-  // Colors based on current project theme
+  // Colors based on project theme
   colors: {
     // Primary - Main system color (Dark Red/Brown)
     primary: {
